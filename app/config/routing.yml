@@ -4,6 +4,6 @@
 #   prefix:   /_internal
 
 _blog:
-    resource: "@NiepiBlogBundle/Controller/IndexController.php"
+    resource: "@BlogBundle/Controller/BlogController.php"
     type:     annotation
     prefix:   /blog
