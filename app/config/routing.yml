@@ -2,3 +2,8 @@
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #   prefix:   /_internal
+
+_blog:
+    resource: "@NiepiBlogBundle/Controller/IndexController.php"
+    type:     annotation
+    prefix:   /blog

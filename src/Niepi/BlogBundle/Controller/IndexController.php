@@ -9,10 +9,10 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class DemoController extends Controller
+class IndexController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="_blog")
      * @Template()
      */
     public function indexAction()
