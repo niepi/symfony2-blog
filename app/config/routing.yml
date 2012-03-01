@@ -7,3 +7,8 @@ _blog:
     resource: "@BlogBundle/Controller/BlogController.php"
     type:     annotation
     prefix:   /blog
+
+_admin:
+    resource: "@BlogBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin
