@@ -1,0 +1,46 @@
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Sidebar</li>
+              <li ><a href="{{ path('_admin_index') }}">Dashboard</a></li>
+              <li class="active"><a href="{{ path('_admin_postlist') }}">Posts</a></li>
+              <li><a href="#">Comments</a></li>
+              <li><a href="#">Config</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+            <h2>Posts</h2>
+            <p><a class="btn btn-primary btn-large" href="{{ path('_admin_postcreate') }}">Create New Post »</a></p>
+            <table class="table table-striped table-bordered table-condensed">
+              <thead>
+                <tr>
+                  <td>#</td>
+                  <th>Title</th>
+                  <th>Content</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for post in posts %}
+                <tr>
+                  <td>{{ post.id }}</td>
+                  <td>{{ post.title }}</td>
+                  <td>{{ post.content }}</td>
+                  <td><i class="icon-pencil"></i> <i class="icon-trash"></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+        {% include "BlogBundle::footer.html.twig" %}
+{% endblock %}   

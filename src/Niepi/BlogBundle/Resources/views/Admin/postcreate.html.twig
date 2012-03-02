@@ -7,8 +7,8 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li class="active"><a href="{{ path('_admin_index') }}">Dashboard</a></li>
-              <li><a href="{{ path('_admin_postlist') }}">Posts</a></li>
+              <li ><a href="{{ path('_admin_index') }}">Dashboard</a></li>
+              <li class="active"><a href="{{ path('_admin_postlist') }}">Posts</a></li>
               <li><a href="#">Comments</a></li>
               <li><a href="#">Config</a></li>
             </ul>
@@ -16,8 +16,12 @@
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-            <h2>Dashboard</h2>
-            <p>Awesome Dashboard Content!!1!</p>
+            <p>edit Post</p>
+
+            <form action="{{ path('_admin_postcreate') }}" method="post" {{ form_enctype(form) }}>
+              {{ form_widget(form) }}
+              <input type="submit" />
+            </form>
           </div><!--/row-->
         </div><!--/span-->
       </div><!--/row-->

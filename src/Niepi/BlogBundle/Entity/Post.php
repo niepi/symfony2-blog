@@ -3,6 +3,7 @@
 namespace Niepi\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -19,11 +20,13 @@ class Post
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()     
      */
     protected $content;
 
