@@ -17,6 +17,16 @@ class BlogController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $repository = $this->getDoctrine()
+            ->getRepository('BlogBundle:Post');
+
+
+        $query = $repository->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery();
+
+        $posts = $query->getResult();
+    
+        return array('posts' => $posts);
     }
 }

@@ -2,8 +2,20 @@
 
 {% block content %}
     <div class="container">
-      <h1>Bootstrap starter template</h1>
-      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+    {% for post in posts %}
+	<article>
+		<header>
+			<h1>{{ post.title }}</h1>
+		</header>
+		<p>{{ post.content }}</p>
+		<footer>
+			<p>Published
+			<time datetime="{{ post.dateCreated|date("F jS \\a\\t g:ia") }}" pubdate>{{ post.dateCreated|date("F jS \\a\\t g:ia") }}
+			</time>
+			</p>
+		</footer>
+	</article>
+    {% endfor %}
 
         {% include "BlogBundle::footer.html.twig" %}
     </div> <!-- /container -->
