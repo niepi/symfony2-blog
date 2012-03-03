@@ -30,6 +30,11 @@ class Post
      */
     protected $content;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $dateCreated;
+
 
     /**
      * Get id
@@ -79,5 +84,25 @@ class Post
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set dateCreated
+     *
+     * @param datetime $dateCreated
+     */
+    public function setDateCreated($dateCreated)
+    {
+        $this->dateCreated = $dateCreated;
+    }
+
+    /**
+     * Get dateCreated
+     *
+     * @return datetime 
+     */
+    public function getDateCreated()
+    {
+        return $this->dateCreated;
     }
 }

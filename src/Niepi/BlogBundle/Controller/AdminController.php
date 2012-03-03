@@ -61,6 +61,7 @@ class AdminController extends Controller
 	        if ($form->isValid()) {				
 
 				$post = $form->getData();
+                $post->setDateCreated(new \DateTime('now'));
 				$em = $this->getDoctrine()->getEntityManager();
 				$em->persist($post);
 				$em->flush();
