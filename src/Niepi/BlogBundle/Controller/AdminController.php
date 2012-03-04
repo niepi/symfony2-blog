@@ -55,6 +55,7 @@ class AdminController extends Controller
         $form = $this->createForm(new CreateForm(), $post);
 	
 	    if ($request->getMethod() == 'POST') {
+
 	        $form->bindRequest($request);
 
 	        if ($form->isValid()) {				

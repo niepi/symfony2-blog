@@ -19,4 +19,11 @@ class CreateForm extends AbstractType
     {
         return 'post';
     }
+
+    public function getDefaultOptions(array $options)
+{
+    return array(
+        'data_class' => 'Niepi\BlogBundle\Entity\Post',
+    );
+}
 }
