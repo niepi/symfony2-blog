@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Niepi\BlogBundle\Entity\Post;
+use Niepi\BlogBundle\Form\Post\CreateForm;
 
 class AdminController extends Controller
 {
@@ -50,11 +51,8 @@ class AdminController extends Controller
     {
 
 		$post = new Post();
-        $form = $this->createFormBuilder($post)
-            ->add('id', 'hidden')
-            ->add('title', 'text')
-            ->add('content', 'textarea')
-            ->getForm();
+
+        $form = $this->createForm(new CreateForm(), $post);
 	
 	    if ($request->getMethod() == 'POST') {
 	        $form->bindRequest($request);
@@ -62,7 +60,7 @@ class AdminController extends Controller
 	        if ($form->isValid()) {				
 
                 $formData = $request->request->all();
-                $id = $formData['form']['id'];
+                $id = $formData['post']['id'];
 
 				if(empty($id)){
 
@@ -76,8 +74,8 @@ class AdminController extends Controller
 
                     $em = $this->getDoctrine()->getEntityManager();
                     $post = $em->getRepository('BlogBundle:Post')->find($id);                    
-                    $post->setTitle($formData['form']['title']);
-                    $post->setContent($formData['form']['content']);
+                    $post->setTitle($formData['post']['title']);
+                    $post->setContent($formData['post']['content']);
                     $em->flush();                    
 
                 }
@@ -93,11 +91,8 @@ class AdminController extends Controller
                 $em = $this->getDoctrine()->getEntityManager();
                 $post = $em->getRepository('BlogBundle:Post')->find($id);
 
-                $form = $this->createFormBuilder($post)
-                    ->add('id', 'hidden')
-                    ->add('title', 'text')                    
-                    ->add('content', 'textarea')
-                    ->getForm();                                
+                $form = $this->createForm(new CreateForm(), $post);
+                            
             }
 
         }
