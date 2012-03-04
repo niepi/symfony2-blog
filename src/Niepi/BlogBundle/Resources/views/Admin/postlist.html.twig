@@ -33,7 +33,7 @@
                   <td>{{ post.id }}</td>
                   <td>{{ post.title }}</td>
                   <td>{{ post.content }}</td>
-                  <td><i class="icon-pencil"></i> <i class="icon-trash"></td>
+                  <td><a href="{{ path('_admin_postcreate', { 'id': post.id }) }}"><i class="icon-pencil"></i></a> <a href="{{ path('_admin_postdelete', { 'id': post.id }) }}"><i class="icon-trash"></i></a></td>
                 </tr>
                 {% endfor %}
               </tbody>

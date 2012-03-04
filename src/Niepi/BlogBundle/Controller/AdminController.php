@@ -46,11 +46,12 @@ class AdminController extends Controller
      * @Route("/post-create", name="_admin_postcreate")
      * @Template()
      */
-    public function postcreateAction(Request $request)
+    public function postcreateAction(Request $request = null)
     {
 
 		$post = new Post();
         $form = $this->createFormBuilder($post)
+            ->add('id', 'hidden')
             ->add('title', 'text')
             ->add('content', 'textarea')
             ->getForm();
@@ -60,19 +61,73 @@ class AdminController extends Controller
 
 	        if ($form->isValid()) {				
 
-				$post = $form->getData();
-                $post->setDateCreated(new \DateTime('now'));
-				$em = $this->getDoctrine()->getEntityManager();
-				$em->persist($post);
-				$em->flush();
+                $formData = $request->request->all();
+                $id = $formData['form']['id'];
+
+				if(empty($id)){
+
+                    $post = $form->getData();
+                    $post->setDateCreated(new \DateTime('now'));
+                    $em = $this->getDoctrine()->getEntityManager();
+                    $em->persist($post);
+                    $em->flush();
+
+                } else {
+
+                    $em = $this->getDoctrine()->getEntityManager();
+                    $post = $em->getRepository('BlogBundle:Post')->find($id);                    
+                    $post->setTitle($formData['form']['title']);
+                    $post->setContent($formData['form']['content']);
+                    $em->flush();                    
+
+                }
 
 	            return $this->redirect($this->generateUrl('_admin_postlist'));
 	        }
-	    }
+
+	    } elseif ($request->getMethod() == 'GET'){
+
+            $id = $request->query->get('id');
+
+            if(!empty($id)){
+                $em = $this->getDoctrine()->getEntityManager();
+                $post = $em->getRepository('BlogBundle:Post')->find($id);
+
+                $form = $this->createFormBuilder($post)
+                    ->add('id', 'hidden')
+                    ->add('title', 'text')                    
+                    ->add('content', 'textarea')
+                    ->getForm();                                
+            }
+
+        }
 
         return array(
             'form' => $form->createView()
         );
     }
 
+    /**
+     * @Route("/post-delete", name="_admin_postdelete")
+     * @Template()
+     */
+    public function postdeleteAction(Request $request = null)
+    {
+        if ($request->getMethod() == 'GET') {
+
+            $id = $request->query->get('id');
+
+            if(!empty($id)){
+                $em = $this->getDoctrine()->getEntityManager();
+                $post = $em->getRepository('BlogBundle:Post')->find($id);
+                $em->remove($post);
+                $em->flush();
+                
+            }
+        
+        }
+        
+        return $this->redirect($this->generateUrl('_admin_postlist'));
+
+    }
 }
