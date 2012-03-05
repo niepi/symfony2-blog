@@ -6,7 +6,7 @@ namespace Niepi\BlogBundle\Form\Post;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
 
-class CreateForm extends AbstractType
+class PostCreateForm extends AbstractType
 {
     public function buildForm(FormBuilder $builder, array $options)
     {

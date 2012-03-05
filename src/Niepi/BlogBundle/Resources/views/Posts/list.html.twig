@@ -7,9 +7,9 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li ><a href="{{ path('_admin_index') }}">Dashboard</a></li>
-              <li class="active"><a href="{{ path('_post_list') }}">Posts</a></li>
-              <li><a href="#">Comments</a></li>
+              <li><a href="{{ path('_admin_index') }}">Dashboard</a></li>
+              <li class="active"><a href="{{ path('_posts_list') }}">Posts</a></li>
+              <li><a href="{{ path('_comments_list') }}">Comments</a></li>
               <li><a href="#">Config</a></li>
             </ul>
           </div><!--/.well -->
@@ -17,7 +17,7 @@
         <div class="span9">
           <div class="hero-unit">
             <h2>Posts</h2>
-            <p><a class="btn btn-primary btn-large" href="{{ path('_post_create') }}">Create New Post »</a></p>
+            <p><a class="btn btn-primary btn-large" href="{{ path('_posts_create') }}">Create New Post »</a></p>
             <table class="table table-striped table-bordered table-condensed">
               <thead>
                 <tr>
@@ -33,7 +33,7 @@
                   <td>{{ post.id }}</td>
                   <td>{{ post.title }}</td>
                   <td>{{ post.content }}</td>
-                  <td><a href="{{ path('_post_create', { 'id': post.id }) }}"><i class="icon-pencil"></i></a> <a href="{{ path('_post_delete', { 'id': post.id }) }}"><i class="icon-trash"></i></a></td>
+                  <td><a href="{{ path('_posts_create', { 'id': post.id }) }}"><i class="icon-pencil"></i></a> <a href="{{ path('_posts_delete', { 'id': post.id }) }}"><i class="icon-trash"></i></a></td>
                 </tr>
                 {% endfor %}
               </tbody>

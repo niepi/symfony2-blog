@@ -11,15 +11,24 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Niepi\BlogBundle\Entity\Post;
-use Niepi\BlogBundle\Form\Post\CreateForm;
+use Niepi\BlogBundle\Form\PostCreateForm;
 
-class PostController extends Controller
+class PostsController extends Controller
 {
     /**
-     * @Route("/list", name="_post_list")
+     * @Route("/", name="_posts_index")
      * @Template()
      */
-    public function postlistAction()
+    public function indexAction()
+    {
+        return $this->redirect($this->generateUrl('_posts_list'));
+    }
+
+    /**
+     * @Route("/list", name="_posts_list")
+     * @Template()
+     */
+    public function listAction()
     {
         $repository = $this->getDoctrine()
             ->getRepository('BlogBundle:Post');
@@ -35,15 +44,15 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/create", name="_post_create")
+     * @Route("/create", name="_posts_create")
      * @Template()
      */
-    public function postcreateAction(Request $request = null)
+    public function createAction(Request $request = null)
     {
 
 		$post = new Post();
 
-        $form = $this->createForm(new CreateForm(), $post);
+        $form = $this->createForm(new PostCreateForm(), $post);
 	
 	    if ($request->getMethod() == 'POST') {
 
@@ -72,7 +81,7 @@ class PostController extends Controller
 
                 }
 
-	            return $this->redirect($this->generateUrl('_post_list'));
+	            return $this->redirect($this->generateUrl('_posts_list'));
 	        }
 
 	    } elseif ($request->getMethod() == 'GET'){
@@ -83,7 +92,7 @@ class PostController extends Controller
                 $em = $this->getDoctrine()->getEntityManager();
                 $post = $em->getRepository('BlogBundle:Post')->find($id);
 
-                $form = $this->createForm(new CreateForm(), $post);
+                $form = $this->createForm(new PostCreateForm(), $post);
                             
             }
 
@@ -95,10 +104,10 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/delete", name="_post_delete")
+     * @Route("/delete", name="_posts_delete")
      * @Template()
      */
-    public function postdeleteAction(Request $request = null)
+    public function deleteAction(Request $request = null)
     {
         if ($request->getMethod() == 'GET') {
 
@@ -114,7 +123,7 @@ class PostController extends Controller
         
         }
         
-        return $this->redirect($this->generateUrl('_post_list'));
+        return $this->redirect($this->generateUrl('_posts_list'));
 
     }
 }

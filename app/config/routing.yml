@@ -13,7 +13,14 @@ _admin:
     type:     annotation
     prefix:   /admin/dashboard
 
-_post:
-    resource: "@BlogBundle/Controller/PostController.php"
+_posts:
+    resource: "@BlogBundle/Controller/PostsController.php"
     type:     annotation
-    prefix:   /admin/post    
+    prefix:   /admin/posts    
+
+_comments:
+    resource: "@BlogBundle/Controller/CommentsController.php"
+    type:     annotation
+    prefix:   /admin/comments    
+
+    
