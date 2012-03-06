@@ -15,8 +15,10 @@
               <thead>
                 <tr>
                   <td>#</td>
+                  <th>Post</th>
                   <th>Email</th>
                   <th>Content</th>
+                  <th>Date Created</th>                  
                   <th></th>
                 </tr>
               </thead>
@@ -24,8 +26,10 @@
                 {% for comment in comments %}
                 <tr>
                   <td>{{ comment.id }}</td>
+                  <td>{{ comment.getPost.title }}</td>
                   <td>{{ comment.email }}</td>
                   <td>{{ comment.content }}</td>
+                  <td>{{ comment.dateCreated|date("F jS \\a\\t g:ia") }}</td>
                   <td><a href="{{ path('_comments_delete', { 'id': comment.id }) }}"><i class="icon-trash"></i></a></td>
                 </tr>
                 {% endfor %}
