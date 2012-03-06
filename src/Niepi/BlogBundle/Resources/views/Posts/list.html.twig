@@ -5,7 +5,7 @@
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
-              {{ knp_menu_render('BlogBundle:Builder:mainMenu', {'currentAsLink': false}) }}
+            {% include "BlogBundle::adminMenu.html.twig" %}
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
