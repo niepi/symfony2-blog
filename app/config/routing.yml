@@ -3,6 +3,16 @@
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #   prefix:   /_internal
 
+login:
+    pattern:   /login
+    defaults:  { _controller: BlogBundle:Security:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout
+
 _blog:
     resource: "@BlogBundle/Controller/BlogController.php"
     type:     annotation

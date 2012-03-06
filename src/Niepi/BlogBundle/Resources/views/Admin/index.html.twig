@@ -5,13 +5,7 @@
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li class="active"><a href="{{ path('_admin_index') }}">Dashboard</a></li>
-              <li><a href="{{ path('_posts_list') }}">Posts</a></li>
-              <li><a href="{{ path('_comments_list') }}">Comments</a></li>
-              <li><a href="#">Config</a></li>
-            </ul>
+              {{ knp_menu_render('BlogBundle:Builder:mainMenu', {'currentAsLink': false}) }}
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">

@@ -39,7 +39,14 @@
                     <span class="icon-bar"></span>
                   </a>
                   <a class="brand" href="{{ path('_blog') }}">Niepi Blog</a>
-                  <p class="navbar-text pull-right">Logged in as <a href="{{ path('_admin_index') }}">Admin</a></p>
+                  <p class="navbar-text pull-right">
+                    {% if app.user %}
+                      Logged in as <a href="{{ path('_admin_index') }}">{{ app.user.username }}</a> |
+                      <a href="{{ path('logout') }}">Logout</a>
+                    {% else %} 
+                       <a href="{{ path('login') }}">Login</a>
+                    {% endif %}
+                  </p>                  
                 </div>
               </div>
             </div>

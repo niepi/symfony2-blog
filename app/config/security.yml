@@ -9,8 +9,8 @@ security:
     providers:
         in_memory:
             users:
-                user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+                user:  { password: password, roles: [ 'ROLE_USER' ] }
+                admin: { password: password, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
         dev:
@@ -22,17 +22,22 @@ security:
             security: false
 
         secured_area:
-            pattern:    ^/demo/secured/
+            pattern:    ^/
+            anonymous: ~
+
             form_login:
-                check_path: /demo/secured/login_check
-                login_path: /demo/secured/login
+                login_path: /login
+                check_path: /login_check
+
             logout:
-                path:   /demo/secured/logout
-                target: /demo/
-            #anonymous: ~
+                path:   /logout
+                target: /
+
             #http_basic:
             #    realm: "Secured Demo Area"
 
     access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN } }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
