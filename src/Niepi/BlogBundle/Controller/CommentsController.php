@@ -46,43 +46,6 @@ class CommentsController extends Controller
     }
 
     /**
-     * @Route("/create", name="_comments_create")
-     * @Template()
-     */
-    public function createAction(Request $request)
-    {
-
-        $form = $this->createForm(new CommentCreateForm());
-    
-        if ($request->getMethod() == 'POST') {
-
-            $form->bindRequest($request);
-
-            // if ($form->isValid()) {             
-
-                $comment = new Comment();
-                $comment = $form->getData();
-                $comment->setDateCreated(new \DateTime('now'));
-
-                $formData = $request->request->all();
-                $id = $formData['commentCreateForm']['post']['id'];
-
-                $em = $this->getDoctrine()->getEntityManager();
-                $post = $em->getRepository('BlogBundle:Post')->find($id);  
-
-                $comment->setPost($post);
-
-                $em->persist($comment);
-                $em->flush();
-
-                return $this->redirect($this->generateUrl('_blog_detail',array('id' => $id)));
-        // }
-
-        }
-
-    }
-
-    /**
      * @Route("/delete", name="_comments_delete")
      * @Template()
      */
