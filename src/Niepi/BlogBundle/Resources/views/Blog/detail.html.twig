@@ -1,0 +1,36 @@
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="container">
+	<article>
+		<header>
+			<h1>{{ post.title }}</h1>
+		</header>
+		<p>{{ post.content }}</p>
+		<footer>
+			<p>Published
+			<time datetime="{{ post.dateCreated|date("F jS \\a\\t g:ia") }}" pubdate>{{ post.dateCreated|date("F jS \\a\\t g:ia") }}
+			</time>
+			</p>
+			<p>
+	            <form action="{{ path('_comments_create') }}" method="post" {{ form_enctype(form) }}>
+	              {{ form_widget(form) }}
+	              <input type="submit" />
+	            </form>
+
+	            <p>
+	            	{% for comment in comments %}
+	            		<p>
+            	    	{{ comment.email}} - {{ comment.dateCreated|date("F jS \\a\\t g:ia") }}<br/>
+            	    	{{ comment.content}}
+            	    	</p>
+            	    {% endfor %}
+	            </p>
+			</p>
+		</footer>
+	</article>
+
+        {% include "BlogBundle::footer.html.twig" %}
+    </div> <!-- /container -->
+
+{% endblock %}   

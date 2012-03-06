@@ -1,7 +1,7 @@
 <?php
 // src/Niepi/BlogBundle/Form/Post/CreateForm.php
 
-namespace Niepi\BlogBundle\Form\Post;
+namespace Niepi\BlogBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;

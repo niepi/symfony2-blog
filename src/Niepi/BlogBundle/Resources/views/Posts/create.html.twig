@@ -8,7 +8,7 @@
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
               <li ><a href="{{ path('_admin_index') }}">Dashboard</a></li>
-              <li class="active"><a href="{{ path('_post_list') }}">Posts</a></li>
+              <li class="active"><a href="{{ path('_posts_list') }}">Posts</a></li>
               <li><a href="{{ path('_comments_list') }}">Comments</a></li>
               <li><a href="#">Config</a></li>
             </ul>
@@ -18,7 +18,7 @@
           <div class="hero-unit">
             <p>edit Post</p>
 
-            <form action="{{ path('_post_create') }}" method="post" {{ form_enctype(form) }}>
+            <form action="{{ path('_posts_create') }}" method="post" {{ form_enctype(form) }}>
               {{ form_widget(form) }}
               <input type="submit" />
             </form>

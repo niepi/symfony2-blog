@@ -5,7 +5,7 @@
     {% for post in posts %}
 	<article>
 		<header>
-			<h1>{{ post.title }}</h1>
+			<h1><a href="{{ path('_blog_detail', { 'id': post.id }) }}">{{ post.title }}</a></h1>
 		</header>
 		<p>{{ post.content }}</p>
 		<footer>

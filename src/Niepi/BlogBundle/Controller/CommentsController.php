@@ -10,7 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use Niepi\BlogBundle\Entity\Comments;
+use Niepi\BlogBundle\Entity\Post;
+use Niepi\BlogBundle\Entity\Comment;
+use Niepi\BlogBundle\Form\CommentCreateForm;
 
 class CommentsController extends Controller
 {
@@ -43,6 +45,42 @@ class CommentsController extends Controller
         return array('comments' => $comments);
     }
 
+    /**
+     * @Route("/create", name="_comments_create")
+     * @Template()
+     */
+    public function createAction(Request $request)
+    {
+
+        $form = $this->createForm(new CommentCreateForm());
+    
+        if ($request->getMethod() == 'POST') {
+
+            $form->bindRequest($request);
+
+            // if ($form->isValid()) {             
+
+                $comment = new Comment();
+                $comment = $form->getData();
+                $comment->setDateCreated(new \DateTime('now'));
+
+                $formData = $request->request->all();
+                $id = $formData['commentCreateForm']['post']['id'];
+
+                $em = $this->getDoctrine()->getEntityManager();
+                $post = $em->getRepository('BlogBundle:Post')->find($id);  
+
+                $comment->setPost($post);
+
+                $em->persist($comment);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('_blog_detail',array('id' => $id)));
+        // }
+
+        }
+
+    }
 
     /**
      * @Route("/delete", name="_comments_delete")

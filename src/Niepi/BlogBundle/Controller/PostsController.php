@@ -107,7 +107,7 @@ class PostsController extends Controller
      * @Route("/delete", name="_posts_delete")
      * @Template()
      */
-    public function deleteAction(Request $request = null)
+    public function deleteAction(Request $request)
     {
         if ($request->getMethod() == 'GET') {
 
