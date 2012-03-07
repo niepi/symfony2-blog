@@ -18,6 +18,15 @@ class AdminController extends Controller
      */
     public function indexAction()
     {
+        return $this->redirect($this->generateUrl('_admin_dashboard'));
+    }
+
+    /**
+     * @Route("/dashboard", name="_admin_dashboard")
+     * @Template()
+     */
+    public function dashboardAction()
+    {
         return array();
     }
 
