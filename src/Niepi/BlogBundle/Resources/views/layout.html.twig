@@ -40,12 +40,14 @@
                   </a>
                   <a class="brand" href="{{ path('_blog') }}">Niepi Blog</a>
                   <p class="navbar-text pull-right">
-                    {% if app.user %}
-                      Logged in as <a href="{{ path('_admin_index') }}">{{ app.user.username }}</a> |
-                      <a href="{{ path('logout') }}">Logout</a>
-                    {% else %} 
-                       <a href="{{ path('login') }}">Login</a>
-                    {% endif %}
+                  {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                      {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                      <a href="{{ path('fos_user_security_logout') }}">
+                          {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                      </a>
+                  {% else %}
+                      <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                  {% endif %}
                   </p>                  
                 </div>
               </div>

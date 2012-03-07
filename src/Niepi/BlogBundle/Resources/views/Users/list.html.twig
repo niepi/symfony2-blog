@@ -1,0 +1,41 @@
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            {% include "BlogBundle::adminMenu.html.twig" %}
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+            <h2>Posts</h2>
+            <p><a class="btn btn-primary btn-large" href="{{ path('_posts_create') }}">Create New User »</a></p>
+            <table class="table table-striped table-bordered table-condensed">
+              <thead>
+                <tr>
+                  <td>#</td>
+                  <th>Username</th>
+                  <th>Email</th>
+                  <th>Date Created</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for user in users %}
+                <tr>
+                  <td>{{ user.id }}</td>
+                  <td>{{ user.email }}</td>
+                  <td></td>
+                  <td><a href="{{ path('_posts_create', { 'id': user.id }) }}"><i class="icon-pencil"></i></a> <a href="{{ path('_posts_delete', { 'id': user.id }) }}"><i class="icon-trash"></i></a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+        {% include "BlogBundle::footer.html.twig" %}
+{% endblock %}   

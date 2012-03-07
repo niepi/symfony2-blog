@@ -14,9 +14,10 @@ class Builder extends ContainerAware
         $menu->setchildrenAttributes(array('class' => 'nav nav-list'));
         $menu->addChild('Sidebar');
         $menu['Sidebar']->setAttribute('class', 'nav-header');
-        $menu->addChild('Dashboard', array('route' => '_admin_index'));
+        $menu->addChild('Dashboard', array('route' => '_admin_dashboard'));
         $menu->addChild('Posts', array('route' => '_posts_list'));
-        $menu->addChild('Comments', array('route' => '_comments_list'));        
+        $menu->addChild('Comments', array('route' => '_comments_list'));  
+        $menu->addChild('Users', array('route' => '_users_list'));  
 
 
         return $menu;

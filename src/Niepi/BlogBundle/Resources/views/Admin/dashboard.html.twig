@@ -1,0 +1,20 @@
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            {% include "BlogBundle::adminMenu.html.twig" %}
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+            <h2>Dashboard</h2>
+            <p>Awesome Dashboard Content!!1!</p>
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+        {% include "BlogBundle::footer.html.twig" %}
+{% endblock %}   
