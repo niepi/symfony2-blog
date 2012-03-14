@@ -64,3 +64,30 @@ fos_user:
     firewall_name: main
     user_class: Niepi\BlogBundle\Entity\User    
 
+
+services:
+   admin.post:
+      class: Niepi\BlogBundle\Admin\PostAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Content, label: Posts }
+      arguments: [null, Niepi\BlogBundle\Entity\Post, SonataAdminBundle:CRUD]
+
+   admin.comment:
+      class: Niepi\BlogBundle\Admin\CommentAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Content, label: Comments }
+      arguments: [null, Niepi\BlogBundle\Entity\Comment, SonataAdminBundle:CRUD]
+
+
+sonata_admin:
+    title:      Niepi BLog Bundle
+    dashboard:
+        blocks:
+            # display a dashboard block
+            - { position: left, type: sonata.admin.block.admin_list }
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]

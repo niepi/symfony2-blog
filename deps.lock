@@ -2,7 +2,7 @@ symfony v2.0.11
 twig v1.6.0
 monolog 1.0.2
 doctrine-common 2.1.4
-doctrine-dbal b8d8d9535472ea805f14187343f80ac6cb3c2614
+doctrine-dbal 2.1.6
 doctrine 2.1.6
 swiftmailer v4.1.5
 assetic v1.0.2
@@ -15,3 +15,11 @@ SensioGeneratorBundle b1ccb78c1743f30817b0fce9bb5c6baff6ed7bf8
 AsseticBundle v1.0.1
 KnpMenu f818c58d89885c5eb1e305f5b7360588fd49fbab
 KnpMenuBundle 462b7b40e5c17813a6d14929d7bca7d0511c7736
+FOSUserBundle a0e50724825fd73531a563f514168d8536b9187e
+SonataAdminBundle 89b8a91ed81e555bf668947631718f4838ca1186
+SonataBlockBundle ff34c3fe75bcedc739f3d4f8ad7f0a3b840b75e4
+SonataCacheBundle f82a6d42052b226b09e16a0b7d519ee8906c6cdc
+SonatajQueryBundle 01ffb8d1a7a4bb3971aed003e4f1ef050a0701aa
+Exporter 95f3d6f187ded8e4614f0c3e7e871b79a124b536
+SonataDoctrineORMAdminBundle b5d38449cd768d01b106c8bb8409f07c02b88deb
+EntityAudit 8c11e488ae1f5b6c46cce8ca29fc6f1833c932dd

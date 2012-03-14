@@ -1,74 +1,103 @@
 [symfony]
-    git=http://github.com/symfony/symfony.git
+    git=git://github.com/symfony/symfony.git
     version=v2.0.11
 
 [twig]
-    git=http://github.com/fabpot/Twig.git
+    git=git://github.com/fabpot/Twig.git
     version=v1.6.0
 
 [monolog]
-    git=http://github.com/Seldaek/monolog.git
+    git=git://github.com/Seldaek/monolog.git
     version=1.0.2
 
 [doctrine-common]
-    git=http://github.com/doctrine/common.git
+    git=git://github.com/doctrine/common.git
     version=2.1.4
 
 [doctrine-dbal]
-    git=http://github.com/doctrine/dbal.git
+    git=git://github.com/doctrine/dbal.git
     version=2.1.6
 
 [doctrine]
-    git=http://github.com/doctrine/doctrine2.git
+    git=git://github.com/doctrine/doctrine2.git
     version=2.1.6
 
 [swiftmailer]
-    git=http://github.com/swiftmailer/swiftmailer.git
+    git=git://github.com/swiftmailer/swiftmailer.git
     version=v4.1.5
 
 [assetic]
-    git=http://github.com/kriswallsmith/assetic.git
+    git=git://github.com/kriswallsmith/assetic.git
     version=v1.0.2
 
 [twig-extensions]
-    git=http://github.com/fabpot/Twig-extensions.git
+    git=git://github.com/fabpot/Twig-extensions.git
 
 [metadata]
-    git=http://github.com/schmittjoh/metadata.git
+    git=git://github.com/schmittjoh/metadata.git
     version=1.0.0
 
 [SensioFrameworkExtraBundle]
-    git=http://github.com/sensio/SensioFrameworkExtraBundle.git
+    git=git://github.com/sensio/SensioFrameworkExtraBundle.git
     target=/bundles/Sensio/Bundle/FrameworkExtraBundle
     version=origin/2.0
 
 [JMSSecurityExtraBundle]
-    git=http://github.com/schmittjoh/JMSSecurityExtraBundle.git
+    git=git://github.com/schmittjoh/JMSSecurityExtraBundle.git
     target=/bundles/JMS/SecurityExtraBundle
     version=origin/1.0.x
 
 [SensioDistributionBundle]
-    git=http://github.com/sensio/SensioDistributionBundle.git
+    git=git://github.com/sensio/SensioDistributionBundle.git
     target=/bundles/Sensio/Bundle/DistributionBundle
     version=origin/2.0
 
 [SensioGeneratorBundle]
-    git=http://github.com/sensio/SensioGeneratorBundle.git
+    git=git://github.com/sensio/SensioGeneratorBundle.git
     target=/bundles/Sensio/Bundle/GeneratorBundle
     version=origin/2.0
 
 [AsseticBundle]
-    git=http://github.com/symfony/AsseticBundle.git
+    git=git://github.com/symfony/AsseticBundle.git
     target=/bundles/Symfony/Bundle/AsseticBundle
     version=v1.0.1
 
 [KnpMenu]
-    git=https://github.com/KnpLabs/KnpMenu.git
+    git=git://github.com/KnpLabs/KnpMenu.git
 
 [KnpMenuBundle]
-    git=https://github.com/KnpLabs/KnpMenuBundle.git
+    git=git://github.com/KnpLabs/KnpMenuBundle.git
     target=bundles/Knp/Bundle/MenuBundle   
 
 [FOSUserBundle]
     git=git://github.com/FriendsOfSymfony/FOSUserBundle.git
     target=bundles/FOS/UserBundle     
+
+[SonataAdminBundle]
+    git=git://github.com/sonata-project/SonataAdminBundle.git
+    target=/bundles/Sonata/AdminBundle
+
+[SonataBlockBundle]
+    git=git://github.com/sonata-project/SonataBlockBundle.git
+    target=/bundles/Sonata/BlockBundle
+
+[SonataCacheBundle]
+    git=git://github.com/sonata-project/SonataCacheBundle.git
+    target=/bundles/Sonata/CacheBundle
+
+[SonatajQueryBundle]
+    git=git://github.com/sonata-project/SonatajQueryBundle.git
+    target=/bundles/Sonata/jQueryBundle
+
+[Exporter]
+    git=git://github.com/sonata-project/exporter.git
+    target=/exporter
+
+[SonataDoctrineORMAdminBundle]
+    git=http://github.com/sonata-project/SonataDoctrineORMAdminBundle.git
+    target=/bundles/Sonata/DoctrineORMAdminBundle
+
+# optional bundle
+[EntityAudit]
+    git=git://github.com/simplethings/EntityAudit.git
+    target=/bundles/SimpleThings/EntityAudit    
