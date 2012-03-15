@@ -30,17 +30,12 @@ class BlogController extends Controller
             ->getQuery();
 
         $posts = $query->getResult();
-
-        $this->get('session')->setLocale('en_US');
-        
-        $blog_name = $this->get('translator')->trans('blogname'); 
     
         $comment = new Comment();
         $form = $this->createForm(new CommentCreateForm(), $comment);
         
         return array('posts' => $posts,
-                     'form' => $form->createView(),
-                     'blog_name' => $blog_name);
+                     'form' => $form->createView());
     }
 
     /**

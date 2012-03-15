@@ -8,14 +8,18 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="{{ asset('bundles/blog/css/bootstrap.css') }}" rel="stylesheet">
+
+    {% stylesheets
+        '@BlogBundle/Resources/public/css/*' filter='?yui_css'
+    %}
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
-    </style>
-    <link href="{{ asset('bundles/blog/css/bootstrap-responsive.css') }}" rel="stylesheet">
-
+    </style>    
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -38,7 +42,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </a>
-                  <a class="brand" href="{{ path('_blog') }}">{{ blog_name }}</a>
+                  <a class="brand" href="{{ path('_blog') }}">Niepi Symfony Blog</a>
                   <p class="navbar-text pull-right">
                   {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                       {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -61,19 +65,12 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ asset('bundles/blog/js/jquery.js') }}"></script>
-    <script src="{{ asset('bundles/blog/js/bootstrap-transition.js') }}"></script>
-    <script src="{{ asset('bundles/blog/js/bootstrap-alert.js') }}"></script>
-    <script src="{{ asset('bundles/blog/js/bootstrap-modal.js') }}"></script>
-    <script src="{{ asset('bundles/blog/js/bootstrap-dropdown.js') }}"></script>
-    <script src="{{ asset('bundles/blog/js/bootstrap-scrollspy.js') }}"></script>
-    <script src="{{ asset('bundles/blog/js/bootstrap-tab.js') }}"></script>
-    <script src="{{ asset('bundles/blog/js/bootstrap-tooltip.js') }}"></script>
-    <script src="{{ asset('bundles/blog/js/bootstrap-popover.js') }}"></script>
-    <script src="{{ asset('bundles/blog/js/bootstrap-button.js') }}"></script>
-    <script src="{{ asset('bundles/blog/js/bootstrap-collapse.js') }}"></script>
-    <script src="{{ asset('bundles/blog/js/bootstrap-carousel.js') }}"></script>
-    <script src="{{ asset('bundles/blog/js/bootstrap-typeahead.js') }}"></script>
+
+  {% javascripts
+      '@BlogBundle/Resources/public/js/*' filter='?yui_js'
+  %}
+  <script src="{{ asset_url }}"></script>
+  {% endjavascripts %}
 
   </body>
 </html>

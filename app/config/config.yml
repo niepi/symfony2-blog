@@ -27,6 +27,13 @@ assetic:
     use_controller: false
     # java: /usr/bin/java
     filters:
+        
+        yui_css:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+        
+        yui_js:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+        
         cssrewrite: ~
         # closure:
         #     jar: %kernel.root_dir%/java/compiler.jar
@@ -45,12 +52,13 @@ doctrine:
         charset:  UTF8
 
     orm:
-        # auto_generate_proxy_classes: %kernel.debug%
-        # auto_mapping: true
+        auto_generate_proxy_classes: %kernel.debug%
+#        auto_mapping: true
         
         entity_managers:
             default:
                 mappings:
+                    BlogBundle: ~
                     FOSUserBundle: ~
                     ApplicationSonataUserBundle: ~
                     SonataUserBundle: ~
