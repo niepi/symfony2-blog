@@ -101,3 +101,11 @@
 [EntityAudit]
     git=git://github.com/simplethings/EntityAudit.git
     target=/bundles/SimpleThings/EntityAudit    
+
+[SonataUserBundle]
+    git=git://github.com/sonata-project/SonataUserBundle.git
+    target=/bundles/Sonata/UserBundle
+
+[SonataEasyExtendsBundle]
+    git=git://github.com/sonata-project/SonataEasyExtendsBundle.git
+    target=/bundles/Sonata/EasyExtendsBundle

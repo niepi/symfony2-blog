@@ -45,9 +45,15 @@ doctrine:
         charset:  UTF8
 
     orm:
-        auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
-
+        # auto_generate_proxy_classes: %kernel.debug%
+        # auto_mapping: true
+        
+        entity_managers:
+            default:
+                mappings:
+                    FOSUserBundle: ~
+                    ApplicationSonataUserBundle: ~
+                    SonataUserBundle: ~
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
@@ -60,9 +66,12 @@ jms_security_extra:
     secure_all_services: false
 
 fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
-    user_class: Niepi\BlogBundle\Entity\User    
+    db_driver:      orm # can be orm or odm
+    firewall_name:  main
+    user_class:     Application\Sonata\UserBundle\Entity\User
+
+    group:
+        group_class: Application\Sonata\UserBundle\Entity\Group
 
 
 services:
@@ -78,9 +87,11 @@ services:
         - { name: sonata.admin, manager_type: orm, group: Content, label: Comments }
       arguments: [null, Niepi\BlogBundle\Entity\Comment, SonataAdminBundle:CRUD]
 
+sonata_user:
+    security_acl: true
 
 sonata_admin:
-    title:      Niepi BLog Bundle
+    title:      Niepi Blog Bundle
     dashboard:
         blocks:
             # display a dashboard block

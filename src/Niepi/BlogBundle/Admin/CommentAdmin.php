@@ -32,7 +32,9 @@ class CommentAdmin extends Admin
     public function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('contemt');
+            ->add('id')
+            ->addIdentifier('content')
+            ->add('email');
     }
 
     public function configureDatagridFilters(DatagridMapper $datagridMapper)

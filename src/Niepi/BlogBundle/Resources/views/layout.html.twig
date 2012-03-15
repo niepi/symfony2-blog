@@ -38,7 +38,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </a>
-                  <a class="brand" href="{{ path('_blog') }}">Niepi Blog</a>
+                  <a class="brand" href="{{ path('_blog') }}">{{ blog_name }}</a>
                   <p class="navbar-text pull-right">
                   {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                       {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |

@@ -32,7 +32,9 @@ class PostAdmin extends Admin
     public function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('title');
+            ->add('id')
+            ->addIdentifier('title')
+            ->add('content');
     }
 
     public function configureDatagridFilters(DatagridMapper $datagridMapper)
